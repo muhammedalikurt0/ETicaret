@@ -1,0 +1,68 @@
+﻿@using iskurMVC_Eticaret.Models
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@{
+    var products = (List<ShoppingCart>)Session["Cart"];
+    decimal unit = 0;
+    foreach (var item in products)
+    {
+        unit += (item.UnitPrice * item.Quantity);
+    }
+
+}
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <h2>Sepet</h2>
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:50%">Ürün</th>
+                <th style="width:10%">Fiyat</th>
+                <th style="width:8%">Adet</th>
+                <th style="width:22%" class="text-center">Toplam Fiyat</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in products)
+            {
+                <tr>
+                    <td data-th="Product">
+                        <div class="row">
+                            <div class="col-sm-2 hidden-xs"><img src="@item.ImageUrl" style="width:80px;height:80px" alt="..." class="img-responsive" /></div>
+                            <div class="float-sm-10">
+                                <h6 class="nomargin col-sm-6">@item.ProductName</h6>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-th="Price">@item.UnitPrice</td>
+                    <td data-th="Quantity">
+                        @item.Quantity
+                    </td>
+                    <td data-th="Subtotal" class="text-center">@(item.Quantity * item.UnitPrice)</td>
+                    <td class="actions" data-th="">
+                        <a href="/Cart/Remove/@item.ProductID" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><a href="/Main/Index" class="btn btn-warning"><i class="fa fa-angle-left"></i> Alışverişe Devam Et</a></td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center">
+                    <strong>
+                        @unit
+                    </strong>
+                </td>
+                <td><a href="" class="btn btn-success btn-block">Ödeme Yap <i class="fa fa-angle-right"></i></a></td>
+            </tr>
+
+        </tfoot>
+    </table>
+</div>

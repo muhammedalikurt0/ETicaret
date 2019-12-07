@@ -1,0 +1,18 @@
+﻿@using iskurMVC_Eticaret.Areas.Admin.Models.CategoryModels
+@model CategoryInsertModel
+
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Insert Category</h2>
+@using (Html.BeginForm("Insert", "Category"))
+{
+    <div>
+        @Html.LabelFor(x => x.CategoryName)
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Insert</button>
+}

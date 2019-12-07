@@ -1,0 +1,40 @@
+﻿@using iskurMVC_Eticaret.Areas.Admin.Models.ProductModels
+@model ProductUpdateModel
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Update Product</h2>
+
+@using (Html.BeginForm("Update", "Product"))
+{
+
+    <div>
+        @Html.LabelFor(x => x.ProductName)
+        @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.CategoryID)
+        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.DropDownCategories, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.UnitPrice)
+        @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Info)
+        @Html.TextBoxFor(x => x.Info, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Description)
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.ImageUrl)
+        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-success">Update</button>
+    @Html.HiddenFor(x => x.ProductID)
+}

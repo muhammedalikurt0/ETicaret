@@ -1,0 +1,43 @@
+﻿@using iskurMVC_Eticaret.Models
+@model ProductViewModel
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@{
+    var categories = (List<CategoryPartialViewModel>)ViewBag.Categories;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <!-- /Left Menu -->
+            @Html.Partial("_CategoryPartial", categories)
+        </div>
+        <div class="col-lg-9">
+            <div class="card mt-4">
+                <img class="card-img-top img-fluid" src="@Model.ImageUrl" alt="">
+                <div class="card-body">
+                    <h3 class="card-title">@Model.ProductName</h3>
+                    <h4>@Model.UnitPrice ₺</h4>
+                    <p class="card-text">@Model.Info</p>
+                    <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                    4.0 stars
+                </div>
+            </div>
+            <!-- /.card -->
+            <div class="card card-outline-secondary my-4">
+                <div class="card-header">
+                    Açıklama
+                </div>
+                <div class="card-body">
+                    <p> @Model.Description</p>
+                    <hr>
+                    <a href="/Cart/AddToCart/@Model.ProductID" class="btn btn-success">Sepete Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

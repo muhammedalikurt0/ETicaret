@@ -1,0 +1,14 @@
+﻿@using iskurMVC_Eticaret.Models
+@{
+    LoginModel loginModel = (LoginModel)Session["User"];
+    string userName = loginModel.UserName;
+}
+<br />
+<h5>@userName</h5>
+<br />
+<div class="list-group">
+    <a href="/Users/Profil" class="list-group-item">Profil Bilgileri</a>
+    <a href="/Address/Index" class="list-group-item">Adres Bilgileri</a>
+    <a href="" class="list-group-item">Ödeme Seçenekleri</a>
+    <a href="" class="list-group-item">Sipariş Takip</a>
+</div>

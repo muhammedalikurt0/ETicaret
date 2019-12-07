@@ -1,0 +1,20 @@
+﻿@using iskurMVC_Eticaret.Areas.Admin.Models.CategoryModels
+@model CategoryUpdateModel
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Update Category</h2>
+
+@using (Html.BeginForm("Update", "Category"))
+{
+    @Html.HiddenFor(x => x.CategoryID)
+    <div>
+        @Html.LabelFor(x => x.CategoryName)
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Update</button>
+}

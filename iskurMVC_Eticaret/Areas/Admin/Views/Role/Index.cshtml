@@ -1,0 +1,38 @@
+﻿@using iskurMVC_Eticaret.Areas.Admin.Models.RoleModels
+@model  List<UserRoleViewModel>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Role Index</h2>
+@{
+    var userID = Model[0].UserID;
+    var UserName = Model[0].UserName;
+}
+<h4>@("ID=" + userID + " " + "Name=" + UserName)</h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>RoleID</th>
+            <th>RoleName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.RoleID</td>
+                <td>@item.RoleName</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<a href="/Admin/Role/Insert/@userID" class="btn btn-success">Insert</a>
+
+

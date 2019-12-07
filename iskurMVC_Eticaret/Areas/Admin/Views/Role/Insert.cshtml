@@ -1,0 +1,25 @@
+﻿@using iskurMVC_Eticaret.Areas.Admin.Models.RoleModels
+@model InsertUserRole
+
+
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Insert New User Role</h2>
+
+@{
+    var user = (InsertUserRole)ViewBag.User;
+}
+
+
+@using (Html.BeginForm("Insert", "Role"))
+{
+    <div class="form-group">
+        <h4>Insert Role for @(user.UserName) </h4>
+        @Html.DropDownListFor(x => x.RoleID, (List<SelectListItem>)ViewBag.Roles, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-success">Insert</button>
+    @Html.HiddenFor(x => x.UserID)
+}

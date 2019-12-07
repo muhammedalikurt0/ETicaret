@@ -1,0 +1,49 @@
+﻿@using iskurMVC_Eticaret.Models;
+@model UserModel
+
+
+@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-3">
+            <!-- /Left Menu -->
+            @Html.Partial("_UserPartial")
+        </div>
+
+        <div class="col-lg-9">
+            @using (Html.BeginForm("Profil", "Users"))
+            {
+                <br />
+                <h4>Profil Bilgileri</h4>
+                <div class="container">
+                    <div class="form-group">
+                        <span>Kullanıcı Adı</span>
+                        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control col-sm-5" })
+                    </div>
+                    <div class="form-group">
+                        <span>Telefon</span>
+                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control col-sm-5" })
+                    </div>
+                    <div class="form-group">
+                        <span>E-Posta</span>
+                        @Html.TextBoxFor(x => x.EMail, new { @class = "form-control col-sm-5" })
+                    </div>
+                    <div class="form-group">
+                        <span>Şifre</span>
+                        @Html.TextBoxFor(x => x.Password, new { @class = "form-control col-sm-5" })
+                    </div>
+                    <button type="submit" class="btn btn-success">Güncelle</button>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
+

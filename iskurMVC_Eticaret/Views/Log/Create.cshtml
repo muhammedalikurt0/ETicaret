@@ -1,0 +1,36 @@
+﻿@using iskurMVC_Eticaret.Models
+@model CreateAccountModel
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Log"))
+{
+    <div class="container">
+        <div class="col-lg-4"><h2>Login</h2></div>
+        <div class="form-group col-lg-4">
+            @Html.LabelFor(x => x.UserName)
+            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-lg-4">
+            @Html.LabelFor(x => x.Password)
+            @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-lg-4">
+            @Html.LabelFor(x => x.Phone)
+            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-lg-4">
+            @Html.LabelFor(x => x.EMail)
+            @Html.TextBoxFor(x => x.EMail, new { @class = "form-control" })
+        </div>
+        <div class="col-lg-4">
+            <button type="submit" class="btn btn-success">Üye Ol</button>
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,19 @@
+﻿<!-- Page Content -->
+@using iskurMVC_Eticaret.Models
+@model  List<CategoryPartialViewModel>
+
+@{
+
+}
+<br />
+<h1>Kategoriler</h1>
+<br />
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="/Main/Index/@item.CategoryID" class="list-group-item">@item.CategoryName</a>
+    }
+
+
+</div>
+
